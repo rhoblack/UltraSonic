@@ -16,7 +16,7 @@ int main()
         distance = ultraSonic.readDistance();
         std::cout << "distance = " << distance << "cm" <<std::endl;
 
-        delay(1000);
+        delay(800);
     }
 
     return 0;
