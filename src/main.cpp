@@ -1,22 +1,22 @@
 #include <iostream>
 #include <wiringPi.h>
-#include "DHT11.h"
+#include "UltraSonic.h"
 
 int main()
 {
-    std::cout << "helloworld" << std::endl;
-    DHT11 dht(7);
-    DHT_Data dhtData;
+    int trigPin = 5;
+    int echoPin = 4;
+
+    UltraSonic ultraSonic(trigPin, echoPin);
+
+    int distance;
 
     while(1)
     {
-        dhtData = dht.readData();
-        if (!dhtData.error) {
-            std::printf("RH: %d.%d, Temp: %d.%d\n", 
-                        dhtData.RH, dhtData.RHDec,
-                        dhtData.Temp, dhtData.TempDec);
-        }
-        delay(3000);
+        distance = ultraSonic.readDistance();
+        std::cout << "distance = " << distance << "cm" <<std::endl;
+
+        delay(1000);
     }
 
     return 0;

@@ -1,11 +1,12 @@
 add_executable(${PROJECT_NAME}
     main.cpp
-    ./hw/DHT11/DHT11.cpp
+    ./hw/UltraSonic/UltraSonic.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
     ./
-    ./hw/DHT11
+    ./hw
+    ./hw/UltraSonic
 )
 
 target_compile_options(${PROJECT_NAME} PUBLIC
